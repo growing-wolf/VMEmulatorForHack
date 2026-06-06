@@ -1,0 +1,13 @@
+{
+  "clangd.path": "/usr/bin/clangd", // 使用WSL中的clangd
+  "clangd.arguments": [
+    "--compile-commands-dir=${workspaceFolder}/build",
+    "--background-index", // 后台索引加速
+    "--clang-tidy" // 启用静态分析（可选）
+  ],
+  // 禁用微软的C/C++扩展
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "C_Cpp.autocomplete": "disabled",
+  // 如果使用CMake Tools
+  "cmake.configureArgs": ["-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"]
+}

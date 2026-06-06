@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/myapp.dir/src/CodeWriter.cpp.o CMakeFiles/myapp.dir/src/Parser.cpp.o CMakeFiles/myapp.dir/src/main.cpp.o -o myapp 
