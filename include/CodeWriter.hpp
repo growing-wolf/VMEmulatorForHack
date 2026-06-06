@@ -8,7 +8,8 @@
 
 class CodeWriter{
 private:
-    int labelCounter;
+  int labelCounter = 0;
+  int retCounter=0;
     std::string filename;
     std::ofstream output;
 

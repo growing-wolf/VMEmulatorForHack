@@ -32,23 +32,27 @@ int main(int argc, char *argv[]) {
 
     // 确定输出文件名
     std::string outputName;
-    if (vmFiles.size() == 1 && vmFiles[0].parent_path().empty()) {
-        // 单个文件且在当前目录 → 输出 文件名.asm
-        outputName = vmFiles[0].stem().string() + ".asm";
+    if (vmFiles.size() == 1) {
+
+        // 单个文件：输出到文件所在目录的同名.asm
+        outputName = (vmFiles[0].parent_path() / (vmFiles[0].stem().string() + ".asm")).string();
     } else {
-        // 多个文件或文件在子目录 → 输出 目录名.asm
-        outputName = vmFiles[0].parent_path().filename().string() + ".asm";
+        // 多个文件：输出到目录下的目录名.asm
+        fs::path dirPath = vmFiles[0].parent_path();
+        outputName = (dirPath / (dirPath.filename().string() + ".asm")).string();
     }
     CodeWriter cw(outputName);
     cw.WriteInit();  // 生成初始化代码（SP=256，调用Sys.init）
     //逐个翻译每个 .vm 文件 
     for (const auto &vmFile : vmFiles) {
-        Parser parser(vmFile);
+      Parser parser(vmFile);
+      
         while (parser.advance()) {
-            auto type=parser.commandType();
-            switch (parser.commandType()) {
+          auto type = parser.commandType();
+         
+            switch (type) {
                 case C_ARITHMETIC:
-                    cw.WriteArithmetic(parser.ARG1());
+                    cw.WriteArithmetic(parser.cmdType());
                     break;
                     
                 case C_PUSH:

@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named myapp
+# Target rules for targets named VMtranslator
 
 # Build rule for target.
-myapp: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 myapp
-.PHONY : myapp
+VMtranslator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 VMtranslator
+.PHONY : VMtranslator
 
 # fast build rule for target.
-myapp/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/build
-.PHONY : myapp/fast
+VMtranslator/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/build
+.PHONY : VMtranslator/fast
 
 src/CodeWriter.o: src/CodeWriter.cpp.o
 .PHONY : src/CodeWriter.o
 
 # target to build an object file
 src/CodeWriter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/src/CodeWriter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o
 .PHONY : src/CodeWriter.cpp.o
 
 src/CodeWriter.i: src/CodeWriter.cpp.i
@@ -142,7 +142,7 @@ src/CodeWriter.i: src/CodeWriter.cpp.i
 
 # target to preprocess a source file
 src/CodeWriter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/src/CodeWriter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.i
 .PHONY : src/CodeWriter.cpp.i
 
 src/CodeWriter.s: src/CodeWriter.cpp.s
@@ -150,7 +150,7 @@ src/CodeWriter.s: src/CodeWriter.cpp.s
 
 # target to generate assembly for a file
 src/CodeWriter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/src/CodeWriter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.s
 .PHONY : src/CodeWriter.cpp.s
 
 src/Parser.o: src/Parser.cpp.o
@@ -158,7 +158,7 @@ src/Parser.o: src/Parser.cpp.o
 
 # target to build an object file
 src/Parser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/src/Parser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/src/Parser.cpp.o
 .PHONY : src/Parser.cpp.o
 
 src/Parser.i: src/Parser.cpp.i
@@ -166,7 +166,7 @@ src/Parser.i: src/Parser.cpp.i
 
 # target to preprocess a source file
 src/Parser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/src/Parser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/src/Parser.cpp.i
 .PHONY : src/Parser.cpp.i
 
 src/Parser.s: src/Parser.cpp.s
@@ -174,7 +174,7 @@ src/Parser.s: src/Parser.cpp.s
 
 # target to generate assembly for a file
 src/Parser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/src/Parser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/src/Parser.cpp.s
 .PHONY : src/Parser.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -182,7 +182,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -190,7 +190,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -198,7 +198,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -209,7 +209,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... myapp"
+	@echo "... VMtranslator"
 	@echo "... src/CodeWriter.o"
 	@echo "... src/CodeWriter.i"
 	@echo "... src/CodeWriter.s"

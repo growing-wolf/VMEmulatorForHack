@@ -16,16 +16,24 @@ bool Parser::advance(){
 
 bool Parser::hasMoreCommands(){
     std::string line;
-    while(std::getline(inFile,line)){
-        if(line.empty()||line.find("//")!=std::string::npos){continue;}
+    while (std::getline(inFile, line)) {
+      if (!line.empty() && line.back() == '\r') {
+            line.pop_back(); 
+        }
+        if (line.empty() || line.find("//") != std::string::npos) {
+          continue;
+        }
+       
         command = line;
+        
         return true;
     }
     return false;
 }
 
 CommandType Parser::commandType() {
-    //查找命令表，对应相应命令
+  //查找命令表，对应相应命令
+    
     auto it = commandMap.find(cmdtype);
     if (it != commandMap.end()) {
         return it->second;
@@ -38,26 +46,19 @@ void Parser::divide() {
     tokens.clear();
     std::stringstream ss(command);
     std::string args;
-    while (ss >> args) {tokens.push_back(args);}
-    CommandType type = commandType();
-    if(type==C_ARITHMETIC){
-        arg1 = command;
-    }
-    if(type==C_POP||type==C_PUSH||type==C_FUNCTION||type==C_CALL){
-      if (tokens.size() == 3) {
-            cmdtype =tokens[0];
-            arg1 = tokens[1];
-            arg2 = tokens[2];
-        }else{
-            std::cout << tokens.size() << std::endl;
-        }
-    }
+    while (ss >> args) {tokens.push_back(args);}  
+    cmdtype=tokens[0];
+    arg1 = tokens[1];
+    arg2 = tokens[2];
+         
 }
 
-std::string Parser::ARG1(){
+std::string Parser::ARG1() {
     return arg1;
 }
 
-int Parser::ARG2(){
-    return std::stoi(arg2);
-}
+int Parser::ARG2() { return std::stoi(arg2); }
+
+std::string Parser::cmdType() {
+     return cmdtype;
+};

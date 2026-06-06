@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/cola/VMemulatotForHack/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/myapp.dir/all
+all: CMakeFiles/VMtranslator.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/myapp.dir/clean
+clean: CMakeFiles/VMtranslator.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/myapp.dir
+# Target rules for target CMakeFiles/VMtranslator.dir
 
 # All Build rule for target.
-CMakeFiles/myapp.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cola/VMemulatotForHack/build/CMakeFiles --progress-num=1,2,3,4 "Built target myapp"
-.PHONY : CMakeFiles/myapp.dir/all
+CMakeFiles/VMtranslator.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cola/VMemulatotForHack/build/CMakeFiles --progress-num=1,2,3,4 "Built target VMtranslator"
+.PHONY : CMakeFiles/VMtranslator.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/myapp.dir/rule: cmake_check_build_system
+CMakeFiles/VMtranslator.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/cola/VMemulatotForHack/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/myapp.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/VMtranslator.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/cola/VMemulatotForHack/build/CMakeFiles 0
-.PHONY : CMakeFiles/myapp.dir/rule
+.PHONY : CMakeFiles/VMtranslator.dir/rule
 
 # Convenience name for target.
-myapp: CMakeFiles/myapp.dir/rule
-.PHONY : myapp
+VMtranslator: CMakeFiles/VMtranslator.dir/rule
+.PHONY : VMtranslator
 
 # clean rule for target.
-CMakeFiles/myapp.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/myapp.dir/build.make CMakeFiles/myapp.dir/clean
-.PHONY : CMakeFiles/myapp.dir/clean
+CMakeFiles/VMtranslator.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VMtranslator.dir/build.make CMakeFiles/VMtranslator.dir/clean
+.PHONY : CMakeFiles/VMtranslator.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

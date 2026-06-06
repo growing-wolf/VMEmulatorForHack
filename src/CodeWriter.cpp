@@ -13,7 +13,8 @@ void CodeWriter::setFileName(std::string& pathname){
     filename = std::filesystem::path(pathname).stem().string();
 }
 
-void CodeWriter::WriteArithmetic(std::string command){
+void CodeWriter::WriteArithmetic(std::string command) {
+    output<<"// "<<command<<"\n";
     if(command=="add"){
         output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nM=M+D\n@SP\nM=M+1\n";
     }
@@ -34,7 +35,7 @@ void CodeWriter::WriteArithmetic(std::string command){
     }
     if(command == "eq") {
         std::string label = std::to_string(labelCounter++);
-        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@EQ_TRUE" + label  + "\nD;JEQ\nD=0\n@EQ_END" +label  + "\n0;JMP\n(EQ_TRUE" + label  + ")\nD=-1\n(EQ_END" + label  + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
+        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@EQ_TRUE." + label  + "\nD;JEQ\nD=0\n@EQ_END" +label  + "\n0;JMP\n(EQ_TRUE" + label  + ")\nD=-1\n(EQ_END" + label  + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
     }
     if(command == "gt") {
         std::string label = std::to_string(labelCounter++);
@@ -169,7 +170,7 @@ void CodeWriter::WriteIf(std::string label) {
 
 
 void CodeWriter::WriteCall(std::string functionName, int numArgs) {
-    std::string returnLabel = functionName + "$ret" + std::to_string(labelCounter++);
+    std::string returnLabel = functionName + "$ret." + std::to_string(retCounter++);
     
     // 保存返回地址
     output << "@" << returnLabel << "\n"

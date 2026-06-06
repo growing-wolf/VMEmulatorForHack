@@ -1,17 +1,17 @@
 [
 {
   "directory": "/home/cola/VMemulatotForHack/build",
-  "command": "/usr/bin/c++  -I/home/cola/VMemulatotForHack/include -std=gnu++17 -o CMakeFiles/myapp.dir/src/CodeWriter.cpp.o -c /home/cola/VMemulatotForHack/src/CodeWriter.cpp",
+  "command": "/usr/bin/c++  -I/home/cola/VMemulatotForHack/include -std=gnu++17 -o CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o -c /home/cola/VMemulatotForHack/src/CodeWriter.cpp",
   "file": "/home/cola/VMemulatotForHack/src/CodeWriter.cpp"
 },
 {
   "directory": "/home/cola/VMemulatotForHack/build",
-  "command": "/usr/bin/c++  -I/home/cola/VMemulatotForHack/include -std=gnu++17 -o CMakeFiles/myapp.dir/src/Parser.cpp.o -c /home/cola/VMemulatotForHack/src/Parser.cpp",
+  "command": "/usr/bin/c++  -I/home/cola/VMemulatotForHack/include -std=gnu++17 -o CMakeFiles/VMtranslator.dir/src/Parser.cpp.o -c /home/cola/VMemulatotForHack/src/Parser.cpp",
   "file": "/home/cola/VMemulatotForHack/src/Parser.cpp"
 },
 {
   "directory": "/home/cola/VMemulatotForHack/build",
-  "command": "/usr/bin/c++  -I/home/cola/VMemulatotForHack/include -std=gnu++17 -o CMakeFiles/myapp.dir/src/main.cpp.o -c /home/cola/VMemulatotForHack/src/main.cpp",
+  "command": "/usr/bin/c++  -I/home/cola/VMemulatotForHack/include -std=gnu++17 -o CMakeFiles/VMtranslator.dir/src/main.cpp.o -c /home/cola/VMemulatotForHack/src/main.cpp",
   "file": "/home/cola/VMemulatotForHack/src/main.cpp"
 }
 ]

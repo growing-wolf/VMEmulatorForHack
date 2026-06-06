@@ -58,6 +58,7 @@ public:
     bool hasMoreCommands();
     CommandType commandType();
     void divide();
+    std::string cmdType();
     std::string ARG1();
     int ARG2();
 };
