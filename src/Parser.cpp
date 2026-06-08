@@ -3,14 +3,16 @@
 #include <sstream>
 #include <string>
 
-Parser::Parser(const std::string &filename) : inFile(filename) { }
-Parser::Parser(const std::filesystem::path &path): inFile(path){}
+Parser::Parser(const std::string filename) : inFile(filename) { }
+
 bool Parser::advance(){
     if(!hasMoreCommands()){
         return false;
     }
     //获取命令，解析token
+
     Parser::divide();
+    
     return true;
 }
 
@@ -45,11 +47,17 @@ void Parser::divide() {
     //清理，划分语义块，正确对应arg
     tokens.clear();
     std::stringstream ss(command);
-    std::string args;
-    while (ss >> args) {tokens.push_back(args);}  
+    std::string token;
+    while (ss >> token) {
+      tokens.push_back(token);
+    }
+    int size=tokens.size();
     cmdtype=tokens[0];
-    arg1 = tokens[1];
-    arg2 = tokens[2];
+    arg1 = size>=2 ? tokens[1]:"";
+    arg2 = size >= 3 ? tokens[2] : "";
+    // std::cout << tokens.size()<<" " << cmdtype << " " << arg1 << " "
+    //           <<arg2 << std::endl;
+    // // std::cout<<cmdtype<<" "<<arg1<<" "<<arg2<<std::endl;
          
 }
 

@@ -1,17 +1,17 @@
 [
 {
-  "directory": "/home/cola/VMemulatotForHack/build",
-  "command": "/usr/bin/c++  -I/home/cola/VMemulatotForHack/include -std=gnu++17 -o CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o -c /home/cola/VMemulatotForHack/src/CodeWriter.cpp",
-  "file": "/home/cola/VMemulatotForHack/src/CodeWriter.cpp"
+  "directory": "/home/cola/VMtranslatorForHack/build",
+  "command": "/usr/bin/c++  -I/home/cola/VMtranslatorForHack/include -std=gnu++17 -o CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o -c /home/cola/VMtranslatorForHack/src/CodeWriter.cpp",
+  "file": "/home/cola/VMtranslatorForHack/src/CodeWriter.cpp"
 },
 {
-  "directory": "/home/cola/VMemulatotForHack/build",
-  "command": "/usr/bin/c++  -I/home/cola/VMemulatotForHack/include -std=gnu++17 -o CMakeFiles/VMtranslator.dir/src/Parser.cpp.o -c /home/cola/VMemulatotForHack/src/Parser.cpp",
-  "file": "/home/cola/VMemulatotForHack/src/Parser.cpp"
+  "directory": "/home/cola/VMtranslatorForHack/build",
+  "command": "/usr/bin/c++  -I/home/cola/VMtranslatorForHack/include -std=gnu++17 -o CMakeFiles/VMtranslator.dir/src/Parser.cpp.o -c /home/cola/VMtranslatorForHack/src/Parser.cpp",
+  "file": "/home/cola/VMtranslatorForHack/src/Parser.cpp"
 },
 {
-  "directory": "/home/cola/VMemulatotForHack/build",
-  "command": "/usr/bin/c++  -I/home/cola/VMemulatotForHack/include -std=gnu++17 -o CMakeFiles/VMtranslator.dir/src/main.cpp.o -c /home/cola/VMemulatotForHack/src/main.cpp",
-  "file": "/home/cola/VMemulatotForHack/src/main.cpp"
+  "directory": "/home/cola/VMtranslatorForHack/build",
+  "command": "/usr/bin/c++  -I/home/cola/VMtranslatorForHack/include -std=gnu++17 -o CMakeFiles/VMtranslator.dir/src/main.cpp.o -c /home/cola/VMtranslatorForHack/src/main.cpp",
+  "file": "/home/cola/VMtranslatorForHack/src/main.cpp"
 }
 ]

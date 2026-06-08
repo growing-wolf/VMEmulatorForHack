@@ -1,7 +1,7 @@
 CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o: \
- /home/cola/VMemulatotForHack/src/CodeWriter.cpp \
+ /home/cola/VMtranslatorForHack/src/CodeWriter.cpp \
  /usr/include/stdc-predef.h \
- /home/cola/VMemulatotForHack/include/CodeWriter.hpp \
+ /home/cola/VMtranslatorForHack/include/CodeWriter.hpp \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -154,7 +154,7 @@ CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc \
- /home/cola/VMemulatotForHack/include/Parser.hpp \
+ /home/cola/VMtranslatorForHack/include/Parser.hpp \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
@@ -186,4 +186,4 @@ CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o: \
  /usr/include/c++/11/bits/shared_ptr_base.h \
  /usr/include/c++/11/bits/allocated_ptr.h \
  /usr/include/c++/11/bits/refwrap.h /usr/include/c++/11/bits/fs_dir.h \
- /usr/include/c++/11/bits/fs_ops.h
+ /usr/include/c++/11/bits/fs_ops.h /usr/include/c++/11/iostream

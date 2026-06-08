@@ -1,6 +1,6 @@
 CMakeFiles/VMtranslator.dir/src/Parser.cpp.o: \
- /home/cola/VMemulatotForHack/src/Parser.cpp /usr/include/stdc-predef.h \
- /home/cola/VMemulatotForHack/include/Parser.hpp \
+ /home/cola/VMtranslatorForHack/src/Parser.cpp /usr/include/stdc-predef.h \
+ /home/cola/VMtranslatorForHack/include/Parser.hpp \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

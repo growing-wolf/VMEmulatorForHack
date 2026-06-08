@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cola/VMemulatotForHack
+CMAKE_SOURCE_DIR = /home/cola/VMtranslatorForHack
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cola/VMemulatotForHack/build
+CMAKE_BINARY_DIR = /home/cola/VMtranslatorForHack/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/VMtranslator.dir/depend.make
@@ -72,44 +72,44 @@ include CMakeFiles/VMtranslator.dir/flags.make
 CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o: CMakeFiles/VMtranslator.dir/flags.make
 CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o: ../src/CodeWriter.cpp
 CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o: CMakeFiles/VMtranslator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cola/VMemulatotForHack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o -MF CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o.d -o CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o -c /home/cola/VMemulatotForHack/src/CodeWriter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cola/VMtranslatorForHack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o -MF CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o.d -o CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o -c /home/cola/VMtranslatorForHack/src/CodeWriter.cpp
 
 CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cola/VMemulatotForHack/src/CodeWriter.cpp > CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cola/VMtranslatorForHack/src/CodeWriter.cpp > CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.i
 
 CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cola/VMemulatotForHack/src/CodeWriter.cpp -o CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cola/VMtranslatorForHack/src/CodeWriter.cpp -o CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.s
 
 CMakeFiles/VMtranslator.dir/src/Parser.cpp.o: CMakeFiles/VMtranslator.dir/flags.make
 CMakeFiles/VMtranslator.dir/src/Parser.cpp.o: ../src/Parser.cpp
 CMakeFiles/VMtranslator.dir/src/Parser.cpp.o: CMakeFiles/VMtranslator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cola/VMemulatotForHack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/VMtranslator.dir/src/Parser.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VMtranslator.dir/src/Parser.cpp.o -MF CMakeFiles/VMtranslator.dir/src/Parser.cpp.o.d -o CMakeFiles/VMtranslator.dir/src/Parser.cpp.o -c /home/cola/VMemulatotForHack/src/Parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cola/VMtranslatorForHack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/VMtranslator.dir/src/Parser.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VMtranslator.dir/src/Parser.cpp.o -MF CMakeFiles/VMtranslator.dir/src/Parser.cpp.o.d -o CMakeFiles/VMtranslator.dir/src/Parser.cpp.o -c /home/cola/VMtranslatorForHack/src/Parser.cpp
 
 CMakeFiles/VMtranslator.dir/src/Parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VMtranslator.dir/src/Parser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cola/VMemulatotForHack/src/Parser.cpp > CMakeFiles/VMtranslator.dir/src/Parser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cola/VMtranslatorForHack/src/Parser.cpp > CMakeFiles/VMtranslator.dir/src/Parser.cpp.i
 
 CMakeFiles/VMtranslator.dir/src/Parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VMtranslator.dir/src/Parser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cola/VMemulatotForHack/src/Parser.cpp -o CMakeFiles/VMtranslator.dir/src/Parser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cola/VMtranslatorForHack/src/Parser.cpp -o CMakeFiles/VMtranslator.dir/src/Parser.cpp.s
 
 CMakeFiles/VMtranslator.dir/src/main.cpp.o: CMakeFiles/VMtranslator.dir/flags.make
 CMakeFiles/VMtranslator.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/VMtranslator.dir/src/main.cpp.o: CMakeFiles/VMtranslator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cola/VMemulatotForHack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/VMtranslator.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VMtranslator.dir/src/main.cpp.o -MF CMakeFiles/VMtranslator.dir/src/main.cpp.o.d -o CMakeFiles/VMtranslator.dir/src/main.cpp.o -c /home/cola/VMemulatotForHack/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cola/VMtranslatorForHack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/VMtranslator.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VMtranslator.dir/src/main.cpp.o -MF CMakeFiles/VMtranslator.dir/src/main.cpp.o.d -o CMakeFiles/VMtranslator.dir/src/main.cpp.o -c /home/cola/VMtranslatorForHack/src/main.cpp
 
 CMakeFiles/VMtranslator.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VMtranslator.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cola/VMemulatotForHack/src/main.cpp > CMakeFiles/VMtranslator.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cola/VMtranslatorForHack/src/main.cpp > CMakeFiles/VMtranslator.dir/src/main.cpp.i
 
 CMakeFiles/VMtranslator.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VMtranslator.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cola/VMemulatotForHack/src/main.cpp -o CMakeFiles/VMtranslator.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cola/VMtranslatorForHack/src/main.cpp -o CMakeFiles/VMtranslator.dir/src/main.cpp.s
 
 # Object files for target VMtranslator
 VMtranslator_OBJECTS = \
@@ -125,7 +125,7 @@ VMtranslator: CMakeFiles/VMtranslator.dir/src/Parser.cpp.o
 VMtranslator: CMakeFiles/VMtranslator.dir/src/main.cpp.o
 VMtranslator: CMakeFiles/VMtranslator.dir/build.make
 VMtranslator: CMakeFiles/VMtranslator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cola/VMemulatotForHack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable VMtranslator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cola/VMtranslatorForHack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable VMtranslator"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/VMtranslator.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -137,6 +137,6 @@ CMakeFiles/VMtranslator.dir/clean:
 .PHONY : CMakeFiles/VMtranslator.dir/clean
 
 CMakeFiles/VMtranslator.dir/depend:
-	cd /home/cola/VMemulatotForHack/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cola/VMemulatotForHack /home/cola/VMemulatotForHack /home/cola/VMemulatotForHack/build /home/cola/VMemulatotForHack/build /home/cola/VMemulatotForHack/build/CMakeFiles/VMtranslator.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cola/VMtranslatorForHack/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cola/VMtranslatorForHack /home/cola/VMtranslatorForHack /home/cola/VMtranslatorForHack/build /home/cola/VMtranslatorForHack/build /home/cola/VMtranslatorForHack/build/CMakeFiles/VMtranslator.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/VMtranslator.dir/depend
 

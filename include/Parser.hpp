@@ -52,8 +52,7 @@ private:
     
 
 public:
-  Parser(const std::string &filename);
-  Parser(const std::filesystem::path &path);
+  Parser(const std::string filename);
     bool advance();
     bool hasMoreCommands();
     CommandType commandType();

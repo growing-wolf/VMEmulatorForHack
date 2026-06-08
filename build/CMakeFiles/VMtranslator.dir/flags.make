@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/cola/VMemulatotForHack/include
+CXX_INCLUDES = -I/home/cola/VMtranslatorForHack/include
 
 CXX_FLAGS = -std=gnu++17
 

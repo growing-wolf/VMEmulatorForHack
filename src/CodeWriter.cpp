@@ -5,7 +5,7 @@ CodeWriter::CodeWriter(const std::string& pathname) : output(pathname) {
     filename = std::filesystem::path(pathname).stem().string();
 }
 
-void CodeWriter::setFileName(std::string& pathname){
+void CodeWriter::setFileName(std::string pathname){
     if (output.is_open()){
         output.close();
     }
@@ -35,15 +35,15 @@ void CodeWriter::WriteArithmetic(std::string command) {
     }
     if(command == "eq") {
         std::string label = std::to_string(labelCounter++);
-        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@EQ_TRUE." + label  + "\nD;JEQ\nD=0\n@EQ_END" +label  + "\n0;JMP\n(EQ_TRUE" + label  + ")\nD=-1\n(EQ_END" + label  + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
+        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@EQ_TRUE." + label  + "\nD;JEQ\nD=0\n@EQ_END." +label  + "\n0;JMP\n(EQ_TRUE." + label  + ")\nD=-1\n(EQ_END." + label  + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
     }
     if(command == "gt") {
         std::string label = std::to_string(labelCounter++);
-        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@GT_TRUE" + label  + "\nD;JGT\nD=0\n@GT_END" + label  + "\n0;JMP\n(GT_TRUE" + label  + ")\nD=-1\n(GT_END" + label  + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
+        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@GT_TRUE." + label  + "\nD;JGT\nD=0\n@GT_END." + label  + "\n0;JMP\n(GT_TRUE." + label  + ")\nD=-1\n(GT_END." + label  + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
     }
     if(command == "lt") {
         std::string label = std::to_string(labelCounter++);
-        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@LT_TRUE" + label + "\nD;JLT\nD=0\n@LT_END" + label + "\n0;JMP\n(LT_TRUE" + label + ")\nD=-1\n(LT_END" + label + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
+        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@LT_TRUE." + label + "\nD;JLT\nD=0\n@LT_END." + label + "\n0;JMP\n(LT_TRUE." + label + ")\nD=-1\n(LT_END." + label + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
     }
 }
 
@@ -157,21 +157,22 @@ void CodeWriter::WriteInit() {
   WriteCall("Sys.init",0);
   
 };
-void CodeWriter::WriteLabel(std::string label){output << "(" << filename << "$" << label << ")\n";};
-void CodeWriter::WriteGoto(std::string label){output << "@" << filename << "$" << label << "\n" << "0;JMP\n";};
+void CodeWriter::WriteLabel(std::string label){output << "(" << currentFunction << "$" << label << ")\n";};
+void CodeWriter::WriteGoto(std::string label){output << "@" << currentFunction << "$" << label << "\n" << "0;JMP\n";};
 
 void CodeWriter::WriteIf(std::string label) {
   output << "@SP\n"
          << "AM=M-1\n"
          << "D=M\n"
-         << "@" << filename << "$" << label << "\n"
+         << "@" << currentFunction << "$" << label << "\n"
          << "D;JNE\n";
 };
 
 
 void CodeWriter::WriteCall(std::string functionName, int numArgs) {
+    //简化下层翻译，默认vm文件函数名已包含文件名前缀
     std::string returnLabel = functionName + "$ret." + std::to_string(retCounter++);
-    
+    std::string functionLabel= functionName;
     // 保存返回地址
     output << "@" << returnLabel << "\n"
            << "D=A\n"
@@ -210,7 +211,7 @@ void CodeWriter::WriteCall(std::string functionName, int numArgs) {
            << "M=D\n";
     
     // 跳转到函数
-    output << "@" << functionName << "\n"
+    output << "@" << functionLabel << "\n"
            << "0;JMP\n";
     
     // 返回地址标签
@@ -298,8 +299,11 @@ void CodeWriter::WriteReturn() {
 
 
 void CodeWriter::WriteFunction(std::string functionName, int numLocals) {
-    // 函数入口标签
-    output << "(" << functionName << ")\n";
+   std::cout<<functionName<<std::endl;
+  // 函数入口标签
+    currentFunction=functionName;
+    std::string functionLabel="(" +functionName + ")";
+    output <<  functionLabel<<"\n";
     // 为局部变量初始化空间（push constant 0，重复 numLocals 次）
     for (int i = 0; i < numLocals; i++) {
         output << "@0\n"

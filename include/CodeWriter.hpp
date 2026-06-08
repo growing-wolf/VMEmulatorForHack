@@ -5,17 +5,19 @@
 #include <string>
 #include <fstream>
 #include "Parser.hpp"
-
+#include <iostream>
 class CodeWriter{
 private:
   int labelCounter = 0;
   int retCounter=0;
-    std::string filename;
+  std::string filename;
+  
     std::ofstream output;
+    std::string currentFunction;
 
 public:
     CodeWriter(const std::string& pathname);
-    void setFileName(std::string &pathname);
+    void setFileName(std::string pathname);
     void WriteInit();
     void WriteArithmetic(std::string command);
     void WritePushPOP(CommandType type, std::string segment, int index);

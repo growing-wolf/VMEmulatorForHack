@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/cola/VMemulatotForHack/src/CodeWriter.cpp" "CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o" "gcc" "CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o.d"
-  "/home/cola/VMemulatotForHack/src/Parser.cpp" "CMakeFiles/VMtranslator.dir/src/Parser.cpp.o" "gcc" "CMakeFiles/VMtranslator.dir/src/Parser.cpp.o.d"
-  "/home/cola/VMemulatotForHack/src/main.cpp" "CMakeFiles/VMtranslator.dir/src/main.cpp.o" "gcc" "CMakeFiles/VMtranslator.dir/src/main.cpp.o.d"
+  "/home/cola/VMtranslatorForHack/src/CodeWriter.cpp" "CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o" "gcc" "CMakeFiles/VMtranslator.dir/src/CodeWriter.cpp.o.d"
+  "/home/cola/VMtranslatorForHack/src/Parser.cpp" "CMakeFiles/VMtranslator.dir/src/Parser.cpp.o" "gcc" "CMakeFiles/VMtranslator.dir/src/Parser.cpp.o.d"
+  "/home/cola/VMtranslatorForHack/src/main.cpp" "CMakeFiles/VMtranslator.dir/src/main.cpp.o" "gcc" "CMakeFiles/VMtranslator.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links.
