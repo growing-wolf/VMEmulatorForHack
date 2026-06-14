@@ -17,6 +17,7 @@ int main(int argc, char *argv[]) {
   std::string outputName;
   std::string path = argv[1];
   if (fs::is_directory(path)) {
+    
     //目录名.asm
     // 情况1：输入的是目录 → 收集目录下所有 .vm 文件
     for (const auto &entry : fs::directory_iterator(path)) {
@@ -31,21 +32,23 @@ int main(int argc, char *argv[]) {
     // 再拼接输出路径
     outputName = (vmFiles[0].parent_path() / (dirName + ".asm")).string();
     
-    std::cout<<outputName<<std::endl;
+    std::cout<<"outputName:"<<outputName<<std::endl;
   } else if (fs::is_regular_file(path) && fs::path(path).extension() == ".vm") {
     //同名.asm
+    // 情况2：输入的是单个 .vm 文件 → 只处理这个文件
+    vmFiles.push_back(fs::path(path));
     outputName =
         (vmFiles[0].parent_path() / (vmFiles[0].stem().string() + ".asm"))
             .string();
-    // 情况2：输入的是单个 .vm 文件 → 只处理这个文件
-    vmFiles.push_back(fs::path(path));
+    std::cout<<"outputName:"<<outputName<<std::endl;
+
   } else {
     std::cerr << "Error: Invalid path or not a .vm file" << std::endl;
   }
   //初始化语法解析器和编码器
   CodeWriter cw(outputName);
-  cw.WriteInit(); // 生成初始化代码（SP=256，调用Sys.init）
-
+  cw.WriteInit(fs::is_directory(path)); // SP=256始终需要；Sys.init仅在目录/多文件模式下调用
+  
   //逐个翻译每个 .vm 文件
   for (const auto &vmFile : vmFiles) {
 

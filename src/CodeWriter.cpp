@@ -6,44 +6,39 @@ CodeWriter::CodeWriter(const std::string& pathname) : output(pathname) {
 }
 
 void CodeWriter::setFileName(std::string pathname){
-    if (output.is_open()){
-        output.close();
-    }
-    output.open(pathname);
     filename = std::filesystem::path(pathname).stem().string();
 }
 
 void CodeWriter::WriteArithmetic(std::string command) {
-    output<<"// "<<command<<"\n";
     if(command=="add"){
-        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nM=M+D\n@SP\nM=M+1\n";
+        output << "@SP    // add\nAM=M-1\nD=M\n@SP\nAM=M-1\nM=M+D\n@SP\nM=M+1\n";
     }
     if(command == "sub") {
-        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nM=M-D\n@SP\nM=M+1\n";
+        output << "@SP    // sub\nAM=M-1\nD=M\n@SP\nAM=M-1\nM=M-D\n@SP\nM=M+1\n";
     }
     if(command == "neg") {
-        output << "@SP\nAM=M-1\nM=-M\n@SP\nM=M+1\n";
+        output << "@SP    // neg\nAM=M-1\nM=-M\n@SP\nM=M+1\n";
     }
     if(command == "and") {
-        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nM=M&D\n@SP\nM=M+1\n";
+        output << "@SP    // and\nAM=M-1\nD=M\n@SP\nAM=M-1\nM=M&D\n@SP\nM=M+1\n";
     }
     if(command == "or") {
-        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nM=M|D\n@SP\nM=M+1\n";
+        output << "@SP    // or\nAM=M-1\nD=M\n@SP\nAM=M-1\nM=M|D\n@SP\nM=M+1\n";
     }
     if(command == "not") {
-        output <<"@SP\nAM=M-1\nM=!M\n@SP\nM=M+1\n";
+        output << "@SP    // not\nAM=M-1\nM=!M\n@SP\nM=M+1\n";
     }
     if(command == "eq") {
         std::string label = std::to_string(labelCounter++);
-        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@EQ_TRUE." + label  + "\nD;JEQ\nD=0\n@EQ_END." +label  + "\n0;JMP\n(EQ_TRUE." + label  + ")\nD=-1\n(EQ_END." + label  + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
+        output << "@SP    // eq\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@EQ_TRUE." + label  + "\nD;JEQ\nD=0\n@EQ_END." +label  + "\n0;JMP\n(EQ_TRUE." + label  + ")\nD=-1\n(EQ_END." + label  + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
     }
     if(command == "gt") {
         std::string label = std::to_string(labelCounter++);
-        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@GT_TRUE." + label  + "\nD;JGT\nD=0\n@GT_END." + label  + "\n0;JMP\n(GT_TRUE." + label  + ")\nD=-1\n(GT_END." + label  + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
+        output << "@SP    // gt\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@GT_TRUE." + label  + "\nD;JGT\nD=0\n@GT_END." + label  + "\n0;JMP\n(GT_TRUE." + label  + ")\nD=-1\n(GT_END." + label  + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
     }
     if(command == "lt") {
         std::string label = std::to_string(labelCounter++);
-        output <<"@SP\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@LT_TRUE." + label + "\nD;JLT\nD=0\n@LT_END." + label + "\n0;JMP\n(LT_TRUE." + label + ")\nD=-1\n(LT_END." + label + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
+        output << "@SP    // lt\nAM=M-1\nD=M\n@SP\nAM=M-1\nD=M-D\n@LT_TRUE." + label + "\nD;JLT\nD=0\n@LT_END." + label + "\n0;JMP\n(LT_TRUE." + label + ")\nD=-1\n(LT_END." + label + ")\n@SP\nA=M\nM=D\n@SP\nM=M+1\n";
     }
 }
 
@@ -59,8 +54,7 @@ void CodeWriter::WritePushPOP(CommandType type, std::string segment, int index){
     else if (segment == "static") seg = "16";
     if (type == C_PUSH) {
         if (segment == "constant") {
-            output <<"//push constant "<<index<<"\n"
-                <<"@" << index << "\n"
+            output << "@" << index << "    // push constant " << index << "\n"
                 << "D=A\n"
                 << "@SP\n"
                 << "A=M\n"
@@ -69,8 +63,7 @@ void CodeWriter::WritePushPOP(CommandType type, std::string segment, int index){
                 << "M=M+1\n";
         }
         else if (segment == "static") {
-            output <<"//push static "<<index<<"\n"
-                << "@"<<filename<<"." << index << "\n"  
+            output << "@" << filename << "." << index << "    // push static " << index << "\n"
                 << "D=M\n"
                 << "@SP\n"
                 << "A=M\n"
@@ -79,8 +72,7 @@ void CodeWriter::WritePushPOP(CommandType type, std::string segment, int index){
                 << "M=M+1\n";
         }
         else if (segment == "temp" || segment == "pointer") {
-            output <<"//push "<<segment<<" "<<index<<"\n"
-                << "@R" << seg << "\n"
+            output << "@R" << seg << "    // push " << segment << " " << index << "\n"
                 << "D=A\n"
                 << "@" << index << "\n"
                 << "A=D+A\n"
@@ -92,8 +84,7 @@ void CodeWriter::WritePushPOP(CommandType type, std::string segment, int index){
                 << "M=M+1\n";
         }
         else {
-            output <<"//push "<<segment<<" "<<index<<"\n"
-                << "@" << seg << "\n"
+            output << "@" << seg << "    // push " << segment << " " << index << "\n"
                 << "D=M\n"
                 << "@" << index << "\n"
                 << "A=D+A\n"
@@ -107,16 +98,14 @@ void CodeWriter::WritePushPOP(CommandType type, std::string segment, int index){
     }
     else if (type==C_POP) {
         if (segment == "static") {
-            output <<"//pop static "<<index<<"\n"
-                << "@SP\n"
+            output << "@SP    // pop static " << index << "\n"
                 << "AM=M-1\n"
                 << "D=M\n"
-                << "@"<<filename<<"."<< index << "\n"
+                << "@" << filename << "." << index << "\n"
                 << "M=D\n";
         }
         else if (segment == "temp" || segment == "pointer") {
-            output <<"//pop "<<segment<<" "<<index<<"\n"
-                << "@R" << seg << "\n"
+            output << "@R" << seg << "    // pop " << segment << " " << index << "\n"
                 << "D=A\n"
                 << "@" << index << "\n"
                 << "D=D+A\n"
@@ -130,8 +119,7 @@ void CodeWriter::WritePushPOP(CommandType type, std::string segment, int index){
                 << "M=D\n";
         }
         else {
-            output <<"//pop "<<segment<<" "<<index<<"\n"
-                << "@" << seg << "\n"
+            output << "@" << seg << "    // pop " << segment << " " << index << "\n"
                 << "D=M\n"
                 << "@" << index << "\n"
                 << "D=D+A\n"
@@ -149,13 +137,14 @@ void CodeWriter::WritePushPOP(CommandType type, std::string segment, int index){
 
 void CodeWriter::Close() { output.close(); }
 
-void CodeWriter::WriteInit() {
+void CodeWriter::WriteInit(bool bootstrap) {
   output << "@256\n"
          << "D=A\n"
          << "@SP\n"
          << "M=D\n";
-  WriteCall("Sys.init",0);
-  
+  if (bootstrap) {
+    WriteCall("Sys.init", 0);
+  }
 };
 void CodeWriter::WriteLabel(std::string label){output << "(" << currentFunction << "$" << label << ")\n";};
 void CodeWriter::WriteGoto(std::string label){output << "@" << currentFunction << "$" << label << "\n" << "0;JMP\n";};
@@ -174,14 +163,14 @@ void CodeWriter::WriteCall(std::string functionName, int numArgs) {
     std::string returnLabel = functionName + "$ret." + std::to_string(retCounter++);
     std::string functionLabel= functionName;
     // 保存返回地址
-    output << "@" << returnLabel << "\n"
+    output << "@" << returnLabel <<"     "<<"//call"<<" "<<functionName<<" "<<numArgs<<"\n"
            << "D=A\n"
            << "@SP\n"
            << "A=M\n"
            << "M=D\n"
            << "@SP\n"
            << "M=M+1\n";
-    
+
     // 保存 LCL, ARG, THIS, THAT
     std::vector<std::string> segments = {"LCL", "ARG", "THIS", "THAT"};
     for (const auto& seg : segments) {
@@ -193,7 +182,7 @@ void CodeWriter::WriteCall(std::string functionName, int numArgs) {
                << "@SP\n"
                << "M=M+1\n";
     }
-    
+
     // 重新定位 ARG
     output << "@SP\n"
            << "D=M\n"
@@ -203,35 +192,49 @@ void CodeWriter::WriteCall(std::string functionName, int numArgs) {
            << "D=D-A\n"
            << "@ARG\n"
            << "M=D\n";
-    
+
     // 重新定位 LCL
     output << "@SP\n"
            << "D=M\n"
            << "@LCL\n"
            << "M=D\n";
-    
+
     // 跳转到函数
     output << "@" << functionLabel << "\n"
            << "0;JMP\n";
-    
+
     // 返回地址标签
     output << "(" << returnLabel << ")\n";
 }
 void CodeWriter::WriteReturn() {
-    // 保存返回地址到 R13（帧指针）
-    output << "@LCL\n"
+    // FRAME = LCL
+    output << "@LCL    // return\n"
            << "D=M\n"
            << "@R13\n"
            << "M=D\n";
-    
-    // 保存返回值到 R14
+
+    // RET = *(FRAME-5)
+    output << "@5\n"
+           << "A=D-A\n"
+           << "D=M\n"
+           << "@R15\n"
+           << "M=D\n";
+
+    // *ARG = pop()  —— 用当前的ARG（调用者设置的），在恢复之前
     output << "@SP\n"
            << "AM=M-1\n"
            << "D=M\n"
-           << "@R14\n"
+           << "@ARG\n"
+           << "A=M\n"
            << "M=D\n";
-    
-    // 恢复 THAT
+
+    // SP = ARG + 1
+    output << "@ARG\n"
+           << "D=M+1\n"
+           << "@SP\n"
+           << "M=D\n";
+
+    // 恢复 THAT = *(FRAME-1)
     output << "@R13\n"
            << "D=M\n"
            << "@1\n"
@@ -239,8 +242,8 @@ void CodeWriter::WriteReturn() {
            << "D=M\n"
            << "@THAT\n"
            << "M=D\n";
-    
-    // 恢复 THIS
+
+    // 恢复 THIS = *(FRAME-2)
     output << "@R13\n"
            << "D=M\n"
            << "@2\n"
@@ -248,8 +251,8 @@ void CodeWriter::WriteReturn() {
            << "D=M\n"
            << "@THIS\n"
            << "M=D\n";
-    
-    // 恢复 ARG
+
+    // 恢复 ARG = *(FRAME-3)
     output << "@R13\n"
            << "D=M\n"
            << "@3\n"
@@ -257,8 +260,8 @@ void CodeWriter::WriteReturn() {
            << "D=M\n"
            << "@ARG\n"
            << "M=D\n";
-    
-    // 恢复 LCL
+
+    // 恢复 LCL = *(FRAME-4)
     output << "@R13\n"
            << "D=M\n"
            << "@4\n"
@@ -266,30 +269,8 @@ void CodeWriter::WriteReturn() {
            << "D=M\n"
            << "@LCL\n"
            << "M=D\n";
-    
-    // 设置返回地址
-    output << "@R13\n"
-           << "D=M\n"
-           << "@5\n"
-           << "A=D-A\n"
-           << "D=M\n"
-           << "@R15\n"
-           << "M=D\n";
-    
-    // 将返回值放到 ARG 位置
-    output << "@R14\n"
-           << "D=M\n"
-           << "@ARG\n"
-           << "A=M\n"
-           << "M=D\n";
-    
-    // 重置 SP
-    output << "@ARG\n"
-           << "D=M+1\n"
-           << "@SP\n"
-           << "M=D\n";
-    
-    // 跳转到返回地址
+
+    // goto RET
     output << "@R15\n"
            << "A=M\n"
            << "0;JMP\n";
@@ -299,11 +280,11 @@ void CodeWriter::WriteReturn() {
 
 
 void CodeWriter::WriteFunction(std::string functionName, int numLocals) {
-   std::cout<<functionName<<std::endl;
+
   // 函数入口标签
     currentFunction=functionName;
     std::string functionLabel="(" +functionName + ")";
-    output <<  functionLabel<<"\n";
+    output <<  functionLabel << "    // function " << functionName << " " << numLocals << "\n";
     // 为局部变量初始化空间（push constant 0，重复 numLocals 次）
     for (int i = 0; i < numLocals; i++) {
         output << "@0\n"

@@ -2,7 +2,7 @@
 D=A
 @SP
 M=D
-@Sys.init$ret.0
+@Sys.init$ret.0     //call Sys.init 0
 D=A
 @SP
 A=M
@@ -52,9 +52,8 @@ M=D
 @Sys.init
 0;JMP
 (Sys.init$ret.0)
-(Class1.set)
-//push argument 0
-@ARG
+(Class1.set)    // function Class1.set 0
+@ARG    // push argument 0
 D=M
 @0
 A=D+A
@@ -64,14 +63,12 @@ A=M
 M=D
 @SP
 M=M+1
-//pop static 0
-@SP
+@SP    // pop static 0
 AM=M-1
 D=M
-@StaticsTest.0
+@Class1.0
 M=D
-//push argument 1
-@ARG
+@ARG    // push argument 1
 D=M
 @1
 A=D+A
@@ -81,28 +78,36 @@ A=M
 M=D
 @SP
 M=M+1
-//pop static 1
-@SP
+@SP    // pop static 1
 AM=M-1
 D=M
-@StaticsTest.1
+@Class1.1
 M=D
-//push constant 0
-@0
+@0    // push constant 0
 D=A
 @SP
 A=M
 M=D
 @SP
 M=M+1
-@LCL
+@LCL    // return
 D=M
 @R13
+M=D
+@5
+A=D-A
+D=M
+@R15
 M=D
 @SP
 AM=M-1
 D=M
-@R14
+@ARG
+A=M
+M=D
+@ARG
+D=M+1
+@SP
 M=D
 @R13
 D=M
@@ -132,44 +137,25 @@ A=D-A
 D=M
 @LCL
 M=D
-@R13
-D=M
-@5
-A=D-A
-D=M
-@R15
-M=D
-@R14
-D=M
-@ARG
-A=M
-M=D
-@ARG
-D=M+1
-@SP
-M=D
 @R15
 A=M
 0;JMP
-(Class1.get)
-//push static 0
-@StaticsTest.0
+(Class1.get)    // function Class1.get 0
+@Class1.0    // push static 0
 D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@StaticsTest.1
+@Class1.1    // push static 1
 D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-// sub
-@SP
+@SP    // sub
 AM=M-1
 D=M
 @SP
@@ -177,14 +163,24 @@ AM=M-1
 M=M-D
 @SP
 M=M+1
-@LCL
+@LCL    // return
 D=M
 @R13
+M=D
+@5
+A=D-A
+D=M
+@R15
 M=D
 @SP
 AM=M-1
 D=M
-@R14
+@ARG
+A=M
+M=D
+@ARG
+D=M+1
+@SP
 M=D
 @R13
 D=M
@@ -214,43 +210,25 @@ A=D-A
 D=M
 @LCL
 M=D
-@R13
-D=M
-@5
-A=D-A
-D=M
-@R15
-M=D
-@R14
-D=M
-@ARG
-A=M
-M=D
-@ARG
-D=M+1
-@SP
-M=D
 @R15
 A=M
 0;JMP
-(Sys.init)
-//push constant 6
-@6
+(Sys.init)    // function Sys.init 0
+@6    // push constant 6
 D=A
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push constant 8
-@8
+@8    // push constant 8
 D=A
 @SP
 A=M
 M=D
 @SP
 M=M+1
-@Class1.set$ret.1
+@Class1.set$ret.1     //call Class1.set 2
 D=A
 @SP
 A=M
@@ -300,23 +278,33 @@ M=D
 @Class1.set
 0;JMP
 (Class1.set$ret.1)
-//push constant 23
-@23
+@R5    // pop temp 0
+D=A
+@0
+D=D+A
+@R13
+M=D
+@SP
+AM=M-1
+D=M
+@R13
+A=M
+M=D
+@23    // push constant 23
 D=A
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push constant 15
-@15
+@15    // push constant 15
 D=A
 @SP
 A=M
 M=D
 @SP
 M=M+1
-@Class2.set$ret.2
+@Class2.set$ret.2     //call Class2.set 2
 D=A
 @SP
 A=M
@@ -366,7 +354,19 @@ M=D
 @Class2.set
 0;JMP
 (Class2.set$ret.2)
-@Class1.get$ret.3
+@R5    // pop temp 0
+D=A
+@0
+D=D+A
+@R13
+M=D
+@SP
+AM=M-1
+D=M
+@R13
+A=M
+M=D
+@Class1.get$ret.3     //call Class1.get 0
 D=A
 @SP
 A=M
@@ -416,7 +416,7 @@ M=D
 @Class1.get
 0;JMP
 (Class1.get$ret.3)
-@Class2.get$ret.4
+@Class2.get$ret.4     //call Class2.get 0
 D=A
 @SP
 A=M
@@ -466,12 +466,11 @@ M=D
 @Class2.get
 0;JMP
 (Class2.get$ret.4)
-(StaticsTest$END)
-@StaticsTest$END
+(Sys.init$END)
+@Sys.init$END
 0;JMP
-(Class2.set)
-//push argument 0
-@ARG
+(Class2.set)    // function Class2.set 0
+@ARG    // push argument 0
 D=M
 @0
 A=D+A
@@ -481,14 +480,12 @@ A=M
 M=D
 @SP
 M=M+1
-//pop static 0
-@SP
+@SP    // pop static 0
 AM=M-1
 D=M
-@StaticsTest.0
+@Class2.0
 M=D
-//push argument 1
-@ARG
+@ARG    // push argument 1
 D=M
 @1
 A=D+A
@@ -498,28 +495,36 @@ A=M
 M=D
 @SP
 M=M+1
-//pop static 1
-@SP
+@SP    // pop static 1
 AM=M-1
 D=M
-@StaticsTest.1
+@Class2.1
 M=D
-//push constant 0
-@0
+@0    // push constant 0
 D=A
 @SP
 A=M
 M=D
 @SP
 M=M+1
-@LCL
+@LCL    // return
 D=M
 @R13
+M=D
+@5
+A=D-A
+D=M
+@R15
 M=D
 @SP
 AM=M-1
 D=M
-@R14
+@ARG
+A=M
+M=D
+@ARG
+D=M+1
+@SP
 M=D
 @R13
 D=M
@@ -549,44 +554,25 @@ A=D-A
 D=M
 @LCL
 M=D
-@R13
-D=M
-@5
-A=D-A
-D=M
-@R15
-M=D
-@R14
-D=M
-@ARG
-A=M
-M=D
-@ARG
-D=M+1
-@SP
-M=D
 @R15
 A=M
 0;JMP
-(Class2.get)
-//push static 0
-@StaticsTest.0
+(Class2.get)    // function Class2.get 0
+@Class2.0    // push static 0
 D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-//push static 1
-@StaticsTest.1
+@Class2.1    // push static 1
 D=M
 @SP
 A=M
 M=D
 @SP
 M=M+1
-// sub
-@SP
+@SP    // sub
 AM=M-1
 D=M
 @SP
@@ -594,14 +580,24 @@ AM=M-1
 M=M-D
 @SP
 M=M+1
-@LCL
+@LCL    // return
 D=M
 @R13
+M=D
+@5
+A=D-A
+D=M
+@R15
 M=D
 @SP
 AM=M-1
 D=M
-@R14
+@ARG
+A=M
+M=D
+@ARG
+D=M+1
+@SP
 M=D
 @R13
 D=M
@@ -630,22 +626,6 @@ D=M
 A=D-A
 D=M
 @LCL
-M=D
-@R13
-D=M
-@5
-A=D-A
-D=M
-@R15
-M=D
-@R14
-D=M
-@ARG
-A=M
-M=D
-@ARG
-D=M+1
-@SP
 M=D
 @R15
 A=M

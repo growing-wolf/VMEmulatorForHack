@@ -18,7 +18,7 @@ private:
 public:
     CodeWriter(const std::string& pathname);
     void setFileName(std::string pathname);
-    void WriteInit();
+    void WriteInit(bool bootstrap = false);
     void WriteArithmetic(std::string command);
     void WritePushPOP(CommandType type, std::string segment, int index);
     void WriteLabel(std::string label);

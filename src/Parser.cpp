@@ -12,7 +12,7 @@ bool Parser::advance(){
     //获取命令，解析token
 
     Parser::divide();
-    
+    std::cout<<cmdtype<<" "<<arg1<<" "<<arg2<<std::endl;
     return true;
 }
 
@@ -20,14 +20,20 @@ bool Parser::hasMoreCommands(){
     std::string line;
     while (std::getline(inFile, line)) {
       if (!line.empty() && line.back() == '\r') {
-            line.pop_back(); 
+            line.pop_back();
         }
-        if (line.empty() || line.find("//") != std::string::npos) {
+        // 去掉行内注释
+        size_t commentPos = line.find("//");
+        if (commentPos != std::string::npos) {
+            line = line.substr(0, commentPos);
+        }
+        // 跳过空行和纯空白行
+        if (line.empty() || line.find_first_not_of(" \t") == std::string::npos) {
           continue;
         }
-       
+
         command = line;
-        
+
         return true;
     }
     return false;
